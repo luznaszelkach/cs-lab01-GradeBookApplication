@@ -40,20 +40,21 @@ namespace GradeBook.UserInterfaces
                 return;
             }
             var name = parts[1];
-            StandardGradeBook gradeBook = new StandardGradeBook(name);
+            bool IsWeighted = Convert.ToBoolean(parts[3]);
+            StandardGradeBook gradeBook = new StandardGradeBook(name, IsWeighted);
             Console.WriteLine("Created gradebook {0}.", name);
             GradeBookUserInterface.CommandLoop(gradeBook);
 
             if (parts[2] == "standard")
             {
                 name = parts[2];
-                StandardGradeBook standardGradeBook = new StandardGradeBook(name);
+                StandardGradeBook standardGradeBook = new StandardGradeBook(name, IsWeighted);
             }
 
             else if (parts[2] == "ranked")
             {
                 name = parts[2];
-                RankedGradeBook rankedGradeBook = new RankedGradeBook(name);
+                RankedGradeBook rankedGradeBook = new RankedGradeBook(name, IsWeighted);
             }
             else
             {
